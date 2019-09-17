@@ -20,7 +20,7 @@ requirements:
     - pip
   run:
     - python >=3.5
-    - pytorch-cpu >=0.4.1
+    - pytorch-cpu >=1.1.0
     - numpy
     - ase >=3.18
     - h5py
