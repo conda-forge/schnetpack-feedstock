@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
@@ -21,7 +21,7 @@ requirements:
   run:
     - python >=3.5
     - pip
-    - pytorch-cpu >=1.1.0
+    - pytorch >=1.1.0
     - numpy
     - ase >=3.18
     - h5py
