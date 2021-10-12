@@ -1,5 +1,5 @@
 {% set name = "schnetpack" %}
-{% set version = "0.3" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f873608cbcb2b2d4bc8bea17a900ff3db9469ee859c9a9096b77e017d1fa80a6
+  sha256: 54251a81600074d39d467f3f5b85de0f307a0151056a4804a428cb95cbefc44c
 
 build:
   noarch: python
-  number: 1
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -40,7 +40,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'SchNetPack - Deep Neural Networks for Atomistic Systems'
+  summary: SchNetPack - Deep Neural Networks for Atomistic Systems
 
   description: |
     SchNetPack aims to provide accessible atomistic neural networks 
