@@ -29,6 +29,7 @@ requirements:
     - tqdm
     - pyyaml
     - sympy
+    - matscipy
 
 test:
   imports:
