@@ -35,6 +35,9 @@ requirements:
     - pytorch-lightning
     - omegaconf
     - torch-ema
+    - hydra-colorlog
+    - hydra-core
+    - rich
 
 test:
   imports:
