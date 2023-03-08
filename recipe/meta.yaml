@@ -34,6 +34,7 @@ requirements:
     - fasteners
     - pytorch-lightning
     - omegaconf
+    - torch-ema
 
 test:
   imports:
