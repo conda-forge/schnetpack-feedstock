@@ -33,6 +33,7 @@ requirements:
     - dirsync
     - fasteners
     - pytorch-lightning
+    - omegaconf
 
 test:
   imports:
