@@ -16,10 +16,10 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python >=3.5, <3.11  # pytorch is currently incompatible to dataclasses in 3.11
     - pip
   run:
-    - python >=3.5
+    - python >=3.5, <3.11  # pytorch is currently incompatible to dataclasses in 3.11
     - pip
     - pytorch >=1.1.0
     - numpy
@@ -33,6 +33,11 @@ requirements:
     - dirsync
     - fasteners
     - pytorch-lightning
+    - omegaconf
+    - torch-ema
+    - hydra-colorlog
+    - hydra-core
+    - rich
 
 test:
   imports:
