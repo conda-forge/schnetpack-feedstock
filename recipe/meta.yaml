@@ -38,6 +38,8 @@ requirements:
     - hydra-colorlog
     - hydra-core
     - rich
+    - tensorboard
+    - torchmetrics =1.0.1
 
 test:
   imports:
