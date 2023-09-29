@@ -1,5 +1,5 @@
 {% set name = "schnetpack" %}
-{% set version = "2.0.3" %}
+{% set version = "2.0.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0a73f4fedea7fe90873667fcc64e21551f85a73bdffd3faff1f2b2ef47bcfe40
+  sha256: 338311fdb96d858c875732ef05d99f5e37dd1fab59fc9f5c16d0a9a15075a66c
 
 build:
   noarch: python
