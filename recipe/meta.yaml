@@ -28,7 +28,7 @@ requirements:
     - tensorboardx
     - tqdm
     - pyyaml
-    - sympy
+    - sympy <=1.12
     - matscipy
     - dirsync
     - fasteners
@@ -38,6 +38,9 @@ requirements:
     - hydra-colorlog
     - hydra-core
     - rich
+    - black
+    - pre-commit
+    - tensorboard
 
 test:
   imports:
