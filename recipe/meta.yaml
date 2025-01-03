@@ -18,6 +18,7 @@ requirements:
   host:
     - python {{ python_min }}  # pytorch is currently incompatible to dataclasses in 3.11
     - pip
+    - setuptools
   run:
     - python >={{ python_min }},<3.11  # pytorch is currently incompatible to dataclasses in 3.11
     - pip
