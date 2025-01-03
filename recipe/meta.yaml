@@ -6,20 +6,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 8db2224364760ad0a0fc58efe89078df7754e17e21afa88d958f2cce87c95da4
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.5, <3.11  # pytorch is currently incompatible to dataclasses in 3.11
+    - python {{ python_min }}  # pytorch is currently incompatible to dataclasses in 3.11
     - pip
   run:
-    - python >=3.5, <3.11  # pytorch is currently incompatible to dataclasses in 3.11
+    - python >={{ python_min }},<3.11  # pytorch is currently incompatible to dataclasses in 3.11
     - pip
     - pytorch >=1.1.0
     - numpy
@@ -43,6 +43,8 @@ requirements:
     - tensorboard
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - schnetpack
   commands:
