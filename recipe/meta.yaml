@@ -43,6 +43,7 @@ requirements:
     - black
     - pre-commit
     - tensorboard
+    - python-vesin
 
 test:
   requires:
