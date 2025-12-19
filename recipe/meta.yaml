@@ -22,27 +22,30 @@ requirements:
     - setuptools
   run:
     - python >={{ python_min }}
-    - pip
-    - pytorch >=1.1.0
-    - numpy
-    - ase >=3.18
+    - numpy >=2.0.0
+    - sympy >=1.13
+    - ase >=3.21
     - h5py
-    - tensorboardx
-    - tqdm
     - pyyaml
-    - sympy <=1.12
-    - matscipy
-    - dirsync
-    - fasteners
-    - pytorch-lightning
-    - omegaconf
-    - torch-ema
-    - hydra-colorlog
-    - hydra-core
+    - hydra-core >=1.1.0
+    - pytorch >=2.5.0
+    - pytorch_lightning >=2.0.0
+    - torchmetrics
+    - hydra-colorlog >=1.1.0
     - rich
-    - black
+    - fasteners
+    - dirsync
+    - torch-ema
+    - matscipy >=1.1.0
+    - tensorboard >=2.17.1
+    - tensorboardx >=2.6.2.2
+    - tqdm
     - pre-commit
-    - tensorboard
+    - black
+    - protobuf
+    - progressbar
+    - pytest
+    - petname
     - python-vesin
 
 test:
