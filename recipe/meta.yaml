@@ -1,6 +1,6 @@
 {% set name = "schnetpack" %}
-{% set version = "2.1.1" %}
-{% set python_min = "3.10" %}
+{% set version = "2.2.0" %}
+{% set python_min = "3.12" %}
 
 package:
   name: {{ name|lower }}
@@ -8,45 +8,50 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8db2224364760ad0a0fc58efe89078df7754e17e21afa88d958f2cce87c95da4
+  sha256: 28379cc38516f5112faa1f484c9102487855bc2c4a7a03c89997c2a6145f8519
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python {{ python_min }}  # pytorch is currently incompatible to dataclasses in 3.11
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >={{ python_min }},<3.11  # pytorch is currently incompatible to dataclasses in 3.11
-    - pip
-    - pytorch >=1.1.0
-    - numpy
-    - ase >=3.18
+    - python >={{ python_min }}
+    - numpy >=2.0.0
+    - sympy >=1.13
+    - ase >=3.21
     - h5py
-    - tensorboardx
-    - tqdm
     - pyyaml
-    - sympy <=1.12
-    - matscipy
-    - dirsync
-    - fasteners
-    - pytorch-lightning
-    - omegaconf
-    - torch-ema
-    - hydra-colorlog
-    - hydra-core
+    - hydra-core >=1.1.0
+    - pytorch >=2.5.0
+    - pytorch-lightning >=2.0.0
+    - torchmetrics
+    - hydra-colorlog >=1.1.0
     - rich
-    - black
+    - fasteners
+    - dirsync
+    - torch-ema
+    - matscipy >=1.1.0
+    - tensorboard >=2.17.1
+    - tensorboardx >=2.6.2.2
+    - tqdm
     - pre-commit
-    - tensorboard
+    - black
+    - protobuf
+    - progressbar
+    - pytest
+    - petname
+    - python-vesin
 
 test:
   requires:
     - python {{ python_min }}
+    - pip
   imports:
     - schnetpack
   commands:
