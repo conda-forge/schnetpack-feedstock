@@ -1,27 +1,30 @@
-{% set name = "schnetpack" %}
-{% set version = "2.2.0" %}
-{% set python_min = "3.12" %}
+schema_version: 1
+
+context:
+  name: schnetpack
+  version: "2.2.0"
+  python_min: "3.12"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
   sha256: 28379cc38516f5112faa1f484c9102487855bc2c4a7a03c89997c2a6145f8519
 
 build:
+  number: 1
   noarch: python
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - pip
     - setuptools
   run:
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - numpy >=2.0.0
     - sympy >=1.13
     - ase >=3.21
@@ -48,28 +51,26 @@ requirements:
     - petname
     - python-vesin
 
-test:
-  requires:
-    - python {{ python_min }}
-    - pip
-  imports:
-    - schnetpack
-  commands:
-    - pip check
+tests:
+  - python:
+      imports:
+        - schnetpack
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
 
 about:
-  home: https://github.com/atomistic-machine-learning/schnetpack
   license: MIT
-  license_family: MIT
   license_file: LICENSE
   summary: SchNetPack - Deep Neural Networks for Atomistic Systems
-
   description: |
-    SchNetPack aims to provide accessible atomistic neural networks 
-    that can be trained and applied out-of-the-box, while still being 
+    SchNetPack aims to provide accessible atomistic neural networks
+    that can be trained and applied out-of-the-box, while still being
     extensible to custom atomistic architectures.
-  doc_url: https://schnetpack.readthedocs.io/
-  dev_url: https://github.com/atomistic-machine-learning/schnetpack
+  homepage: https://github.com/atomistic-machine-learning/schnetpack
+  repository: https://github.com/atomistic-machine-learning/schnetpack
+  documentation: https://schnetpack.readthedocs.io/
 
 extra:
   recipe-maintainers:
