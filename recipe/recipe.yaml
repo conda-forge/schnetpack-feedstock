@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: schnetpack
-  version: "2.2.0"
+  version: "2.3.0"
   python_min: "3.12"
 
 package:
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 28379cc38516f5112faa1f484c9102487855bc2c4a7a03c89997c2a6145f8519
+  sha256: 8ad36d30c2757c94851068d91f33a052586a04a42ec0d5cc91fe827bfed60f83
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
